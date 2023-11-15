@@ -1,49 +1,119 @@
 package com.example.alacena;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.android.material.navigation.NavigationBarView;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.drawerlayout.widget.DrawerLayout;
+import com.google.android.material.navigation.NavigationView;
 
 public class Menuprin extends AppCompatActivity {
 
-
-    ImageButton imageButton, imageButton2;
-
+    //instancias de los fragmenst
     Inventario inv = new Inventario();
-    @Override
+    Lista lis = new Lista();
+    Recetas rec = new Recetas();
+    //barra de navegacion principal
+    NavigationBarView navMenu;
+
+    //dubujable y menu botton principal de el menu desplegable
+    DrawerLayout drawerLayout;
+    ImageButton navhorbutton;
+
+    //text de opciones
+    TextView textCuenta,textGrupo;
+
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menuprin);
-        imageButton = findViewById(R.id.imageButton);
-        imageButton2 = findViewById(R.id.imageButton2);
         remplaceFragment(inv);
+        //menu desplegable
+        drawerLayout = findViewById(R.id.dibujable);
+        navhorbutton = findViewById(R.id.navhorbutton);
+        //barra de navegacion
+        navMenu = findViewById(R.id.barNav);
+        //opciones de texto
+        textCuenta = findViewById(R.id.textCuenta);
+        textGrupo = findViewById(R.id.textGrupo);
 
 
-        imageButton.setOnClickListener(new View.OnClickListener() {
+        //escucha de barra de navegacion
+        navMenu.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
-            public void onClick(View v) {
-                remplaceFragment(new Recetas());
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+                switch (item.toString()){
+                    case "Lista":
+                        remplaceFragment(lis);
+                        return true;
+                    case "Inventario":
+                        remplaceFragment(inv);
+                        return true;
+                    case "Recetas":
+                        remplaceFragment(rec);
+                        return true;
+                }
+                return false;
             }
         });
 
-        imageButton2.setOnClickListener(new View.OnClickListener() {
+
+        //escucha par EL BOTON que realiza el dibujado de el menu de opciones
+        navhorbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                remplaceFragment(new Inventario());
+                drawerLayout.openDrawer(GravityCompat.START);
             }
         });
+
+
+        //escucha para el click de los textview
+
+        textCuenta.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intCuenta = new Intent(getApplicationContext(),ConfigCuenta.class);
+                startActivity(intCuenta);
+            }
+        });
+
+
+        textGrupo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intGrupo = new Intent(getApplicationContext(),ConfigGrupo.class);
+                startActivity(intGrupo);
+            }
+        });
+
+
+
+
+
 
     }
 
+
+    //metodo para remplazar fragments
     private void remplaceFragment(Fragment fragment) {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.fragmentPrimario,fragment);
+        fragmentTransaction.replace(R.id.framenav,fragment);
         fragmentTransaction.commit();
     }
+
 }

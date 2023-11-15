@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="16dp"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <TextView
+        android:id="@+id/nomitem_lis"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:textColor="@color/black"
+        tools:text="InNomb"/>
+
+    <TextView
+        android:id="@+id/cantitem_lis"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:textSize="20dp"
+        android:layout_toStartOf="@id/checkCom"
+        android:layout_toEndOf="@+id/nomitem_lis"
+        android:textAlignment="center"
+        tools:text="0"/>
+
+    <CheckBox
+        android:id="@+id/checkCom"
+        android:layout_width="wrap_content"
+        android:layout_height="26dp"
+        android:layout_marginEnd="-2dp"
+        android:layout_toStartOf="@id/configItem" />
+
+    <ImageButton
+        android:id="@+id/configItem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:background="@color/white"
+        android:src="@drawable/intconfig"/>
+
+
+
+
+</RelativeLayout>

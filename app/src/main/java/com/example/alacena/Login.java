@@ -11,7 +11,8 @@ import android.widget.ImageButton;
 public class Login extends AppCompatActivity {
 
     ImageButton btnBack;
-    Button btnLogin;
+
+    Button btnLog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,30 +20,23 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         //asociacion de los elementos de el fontend con el backend
         btnBack = findViewById(R.id.btnBack);
-        btnLogin = findViewById(R.id.btnLogin);
+        btnLog = findViewById(R.id.btnLog);
+
         //boton back
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //Logica de el boton
-
-                /*Preguntas al Profesor si hacer de nuevo el intent es una buena practica por que
-                es como si se agregara a la pila multiples pantallas de la misma actividad.
-
-                Intent back = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(back);*/
-
                 finish();
             }
         });
-
-        btnLogin.setOnClickListener(new View.OnClickListener() {
+        btnLog.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
+                //Logica de el boton
                 Intent irmenu = new Intent(getApplicationContext(),Menuprin.class);
                 startActivity(irmenu);
             }
         });
-
     }
 }

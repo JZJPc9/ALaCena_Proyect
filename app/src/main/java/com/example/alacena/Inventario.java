@@ -11,22 +11,13 @@ import android.view.ViewGroup;
 
 public class Inventario extends Fragment {
 
-    View view ;
-    /*public Inventario() {
+
+    public Inventario() {
         // Required empty public constructor
     }
 
-    public static Inventario newInstance(String param1,String param2){
-        Inventario fragment = new Inventario();
-        return fragment;
-    }
+    View view;
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-    }
-*/
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -34,9 +25,4 @@ public class Inventario extends Fragment {
         view = inflater.inflate(R.layout.fragment_inventario, container, false);
         return view;
     }
-/*
-    public void onDestroyView() {
-        super.onDestroyView();
-    }
-*/
 }

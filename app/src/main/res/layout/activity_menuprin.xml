@@ -1,43 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/dibujable"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Menuprin">
+    android:fitsSystemWindows="true"
+    tools:context=".Menuprin"
+    tools:openDrawer="start">
 
 
-    <FrameLayout
-        android:id="@+id/fragmentPrimario"
-        android:name="com.example.alacena.Inventario"
-        android:layout_width="410dp"
-        android:layout_height="595dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.404">
-    </FrameLayout>
+    <include
+        android:id="@+id/app_contain"
+        layout="@layout/app_contain"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
-
-    <ImageButton
-        android:id="@+id/imageButton"
+    <!-- Menú lateral-->
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view"
+        android:background="@color/orange_light"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fragmentPrimario"
-        app:srcCompat="@android:drawable/alert_dark_frame" />
-
-    <ImageButton
-        android:id="@+id/imageButton2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fragmentPrimario"
-        app:srcCompat="@android:drawable/alert_dark_frame" />
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true"
+        app:headerLayout="@layout/app_header_nav">
 
 
+        <TextView
+            android:id="@+id/textCuenta"
+            android:layout_marginStart="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:text="Ir a configuracion de cuenta"
+            android:layout_marginTop="200dp"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/textGrupo"
+            android:layout_marginStart="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:text="Ir a configuracion del Grupo"
+            android:layout_marginTop="250dp"/>
+
+
+        <TextView
+            android:id="@+id/codAcc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:text="codigo:"
+            android:textColor="@color/black"
+            android:layout_margin="20dp"
+            android:layout_gravity="bottom"/>
+
+
+    </com.google.android.material.navigation.NavigationView>
+
+
+
+</androidx.drawerlayout.widget.DrawerLayout>

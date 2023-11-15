@@ -4,20 +4,16 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.*;
-import android.widget.*;
+import android.view.View;
+import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
     Button btnLog;
     Button btnReg;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        //Asociando los views y layouts a el backend
         setContentView(R.layout.activity_main);
         btnLog = findViewById(R.id.btnLog);
         btnReg = findViewById(R.id.btnReg);
@@ -42,5 +38,4 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
-
 }

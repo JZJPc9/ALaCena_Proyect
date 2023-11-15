@@ -8,26 +8,19 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+//imports de android recicler view
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 
 public class Recetas extends Fragment {
 
-
-    View view;
-    /*public Recetas() {
+    public Recetas() {
         // Required empty public constructor
     }
 
-    public static Recetas newInstance(String param1, String param2){
-        Recetas fragment = new Recetas();
-        return fragment;
-    }
+    View view;
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-    }
-*/
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -35,11 +28,4 @@ public class Recetas extends Fragment {
         view = inflater.inflate(R.layout.fragment_recetas, container, false);
         return view;
     }
-
-    /*
-    public void onDestroyView() {
-        super.onDestroyView();
-    }*/
-
-
 }

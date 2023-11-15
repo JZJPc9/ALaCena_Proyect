@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Lista">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerLisCom"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="top"
+        tools:listitem="@layout/res_lis_item"/>
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:backgroundTint="@color/cardview_shadow_end_color"
+        android:src="@drawable/baseline_add_circle_24"
+        android:visibility="visible" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:text="agregar"
+        android:textSize="20dp"
+        android:layout_margin="20dp"
+        android:visibility="visible"/>
+
+
+</FrameLayout>

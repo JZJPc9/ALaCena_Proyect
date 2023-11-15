@@ -6,8 +6,17 @@
     <style name="estilobutton">
         <item name="android:backgroundTint">@color/orange </item>
     </style>
+    <style name="imagebuttonsIn">
+        <item name="android:background">@color/orange</item>
+        <item name="android:padding">1dp</item>
+    </style>
     <style name="estilotexttitle" parent="estilotextview">
         <item name="android:textSize">30dp</item>
         <item name="android:textAlignment">center</item>
     </style>
+
+    <style name="BottomNavigation">
+        <item name="android:background">@color/orange</item>
+    </style>
+
 </resources>

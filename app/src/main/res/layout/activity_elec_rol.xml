@@ -6,8 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".ElecRol">
 
-
-
     <TextView
         android:id="@+id/textView"
         style="@style/estilotexttitle"

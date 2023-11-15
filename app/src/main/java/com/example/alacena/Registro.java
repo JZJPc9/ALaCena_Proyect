@@ -1,12 +1,15 @@
 package com.example.alacena;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
-import android.view.*;
-import android.widget.*;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
 
 public class Registro extends AppCompatActivity {
+
 
     ImageButton btnBack;
     Button btnReg;
