@@ -10,7 +10,7 @@ import android.view.View;
 import android.widget.Button;
 
 public class ElecRol extends AppCompatActivity {
-
+/*prueba de sobreescritura*/
 
     Button btnIng;
     Button btnCre;
