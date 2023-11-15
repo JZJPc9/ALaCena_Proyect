@@ -13,6 +13,10 @@ public class ElecRol extends AppCompatActivity {
 /*prueba de sobreescritura*/
 
     Button btnIng;
+
+    /*
+    sEGUNDO COMENTARIO
+     */
     Button btnCre;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
