@@ -1,5 +1,7 @@
 package com.example.alacena;
-
+/*
+COMENTARIO PARA CONFIRMAR QUE ESTE BIEN VENIDO
+ */
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
