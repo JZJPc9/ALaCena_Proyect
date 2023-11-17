@@ -6,7 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <TextView
-        android:id="@+id/nomitem_lis"
+        android:id="@+id/nomitemLis"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="20dp"
@@ -14,7 +14,7 @@
         tools:text="InNomb"/>
 
     <TextView
-        android:id="@+id/cantitem_lis"
+        android:id="@+id/cantitemlis"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingStart="16dp"
