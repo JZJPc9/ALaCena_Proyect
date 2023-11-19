@@ -19,9 +19,9 @@ import com.example.alacena.clases.IngListCom;
 public class IngLisComAdapter extends ListAdapter <IngListCom, IngLisComAdapter.IngLisComViewHolder>{
 
     //asignacion de la interface con el metodo de accion setOnclicListener
-    private OnItemClickListener objitemclick;
+    private LOnItemClickListener objitemclick;
 
-    public void setOnItemClickListener(OnItemClickListener objitemclick){
+    public void setOnItemClickListener(LOnItemClickListener objitemclick){
         this.objitemclick = objitemclick;
     }
     //fin de la interface
@@ -78,7 +78,7 @@ public class IngLisComAdapter extends ListAdapter <IngListCom, IngLisComAdapter.
                 }
             });
             /*
-            itemView.setOnClickListener(new View.OnClickListener() {
+            itemView.xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     objitemclick.onItemClick(ingListCom);
