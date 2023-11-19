@@ -5,10 +5,10 @@ import java.util.Objects;
 public class IngListCom {
 
     private String nombre;
-    private Double cantidad;
+    private Integer cantidad;
     private boolean check;
 
-    public IngListCom(String nombreIng, Double cantidadIng, boolean checkIng){
+    public IngListCom(String nombreIng, Integer cantidadIng, boolean checkIng){
         this.nombre = nombreIng;
         this.cantidad = cantidadIng;
         this.check = checkIng;
@@ -24,11 +24,11 @@ public class IngListCom {
     }
 
     //g s de cantidad
-    public Double getCantidad() {
+    public Integer getCantidad() {
         return cantidad;
     }
 
-    public void setCantidad(Double cantidad) {
+    public void setCantidad(Integer cantidad) {
         this.cantidad = cantidad;
     }
 

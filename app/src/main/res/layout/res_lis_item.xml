@@ -17,28 +17,28 @@
         android:id="@+id/cantitemlis"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="52dp"
+        android:layout_toStartOf="@id/checkCom"
         android:paddingStart="16dp"
         android:paddingEnd="16dp"
-        android:textSize="20dp"
-        android:layout_toStartOf="@id/checkCom"
-        android:layout_toEndOf="@+id/nomitem_lis"
         android:textAlignment="center"
-        tools:text="0"/>
+        android:textSize="20dp"
+        tools:text="0" />
 
     <CheckBox
         android:id="@+id/checkCom"
         android:layout_width="wrap_content"
         android:layout_height="26dp"
-        android:layout_marginEnd="-2dp"
-        android:layout_toStartOf="@id/configItem" />
+        android:layout_marginEnd="22dp"
+        android:layout_toStartOf="@id/elimItem" />
 
     <ImageButton
-        android:id="@+id/configItem"
+        android:id="@+id/elimItem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:background="@color/white"
-        android:src="@drawable/intconfig"/>
+        android:src="@drawable/equis_24"/>
 
 
 

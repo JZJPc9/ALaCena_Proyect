@@ -33,17 +33,22 @@ public class Lista extends Fragment {
         recyclerLisCom.setLayoutManager(new LinearLayoutManager(getContext()));
 
         ArrayList<IngListCom>inglistcom = new ArrayList<>();
-        inglistcom.add(new IngListCom("papa",2.0,false));
-        inglistcom.add(new IngListCom("jitomate",3.5,false));
+        inglistcom.add(new IngListCom("papa",2,true));
+        inglistcom.add(new IngListCom("jitomate",3,false));
 
         IngLisComAdapter ingLisComAdapter = new IngLisComAdapter();
+
+
+        /*      funcionabilidad aun no terminada     --en un futuro creare un drawable que de mas informacion hacerca de las compras--
 
         ingLisComAdapter.setOnItemClickListener(new OnItemClickListener() {
             @Override
             public void onItemClick(IngListCom ingListCom) {
-                Toast.makeText(getContext(),"cantidad" + String.valueOf(ingListCom.getCantidad()),Toast.LENGTH_SHORT).show();
+               //Toast.makeText(getContext(),"cantidad" + String.valueOf(ingListCom.getCantidad()),Toast.LENGTH_SHORT).show();
             }
         });
+
+         */
 
         recyclerLisCom.setAdapter(ingLisComAdapter);
         ingLisComAdapter.submitList(inglistcom);

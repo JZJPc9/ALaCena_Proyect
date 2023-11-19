@@ -3,6 +3,8 @@ package com.example.alacena;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -52,23 +54,38 @@ public class IngLisComAdapter extends ListAdapter <IngListCom, IngLisComAdapter.
 
         //nombre y cantidad
         private TextView nomitemLis,cantitemlis;
+        private CheckBox checkCom;
+        private ImageButton elimItem;
 
         public IngLisComViewHolder(@NonNull View itemView){
             super(itemView);
             nomitemLis = itemView.findViewById(R.id.nomitemLis);
             cantitemlis = itemView.findViewById(R.id.cantitemlis);
+            checkCom = itemView.findViewById(R.id.checkCom);
+            elimItem = itemView.findViewById(R.id.elimItem);
+
         }
 
         public void bind (IngListCom ingListCom){
             nomitemLis.setText(ingListCom.getNombre());
             cantitemlis.setText(ingListCom.getCantidad().toString());
-
+            checkCom.setSelected(ingListCom.isCheck());
+            //Esta sera una prueba de uso de el boton del recurso item
+            elimItem.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(itemView.getContext(), "Prueba"+ ingListCom.getNombre(),Toast.LENGTH_SHORT).show();
+                }
+            });
+            /*
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     objitemclick.onItemClick(ingListCom);
                 }
             });
+
+             */
 
         }
 

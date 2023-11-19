@@ -77,7 +77,6 @@ public class Registro extends AppCompatActivity {
                 String apellidopText = apellidop.getEditText().getText().toString();
                 String apellidomText = apellidom.getEditText().getText().toString();
                 String contrasenaText = contrasena.getText().toString();
-
                 String concontrasenaText = confContrasena.getText().toString();
                 String correoText = correo.getText().toString();
 
