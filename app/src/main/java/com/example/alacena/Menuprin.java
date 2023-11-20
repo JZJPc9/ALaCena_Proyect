@@ -56,14 +56,15 @@ public class Menuprin extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
-                switch (item.toString()){
-                    case "Lista":
+
+                switch (item.toString().charAt(0)){
+                    case 'L':
                         remplaceFragment(lis);
                         return true;
-                    case "Inventario":
+                    case 'I':
                         remplaceFragment(inv);
                         return true;
-                    case "Recetas":
+                    case 'R':
                         remplaceFragment(rec);
                         return true;
                 }

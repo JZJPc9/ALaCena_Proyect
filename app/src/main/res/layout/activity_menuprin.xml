@@ -33,7 +33,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
-            android:text="Ir a configuracion de cuenta"
+            android:text="@string/txtIrCMen"
             android:layout_marginTop="200dp"/>
 
         <TextView
@@ -42,7 +42,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
-            android:text="Ir a configuracion del Grupo"
+            android:text="@string/txtIrGMen"
             android:layout_marginTop="250dp"/>
 
 
@@ -51,7 +51,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20dp"
-            android:text="codigo:"
+            android:text="@string/txtCodMen"
             android:textColor="@color/black"
             android:layout_margin="20dp"
             android:layout_gravity="bottom"/>

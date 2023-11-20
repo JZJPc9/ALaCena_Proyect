@@ -12,7 +12,7 @@
         android:layout_width="237dp"
         android:layout_height="46dp"
         android:layout_marginTop="28dp"
-        android:text="Elija un Rol"
+        android:text="@string/txtTitEle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
@@ -34,7 +34,7 @@
         android:layout_width="285dp"
         android:layout_height="119dp"
         android:layout_marginTop="28dp"
-        android:text="Para entrar como integrante tendras que solicitar a el creador de un ''Grupo Familiar'' ingrese el codigo a continuacion y da en el boton unirme "
+        android:text="@string/txtDesUnEle"
         app:layout_constraintEnd_toEndOf="@+id/imageViewIntegrante"
         app:layout_constraintStart_toStartOf="@+id/imageViewIntegrante"
         app:layout_constraintTop_toTopOf="@+id/imageViewIntegrante" />
@@ -52,14 +52,14 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="codigo" />
+            android:hint="@string/txtCodEle" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/ingresar"
         android:layout_width="132dp"
         android:layout_height="62dp"
-        android:text="Ingresar"
+        android:text="@string/btnIngEle"
         style="@style/estilobutton"
         app:layout_constraintBottom_toBottomOf="@+id/imageViewIntegrante"
         app:layout_constraintEnd_toEndOf="@+id/imageViewIntegrante"
@@ -87,7 +87,7 @@
         android:layout_width="285dp"
         android:layout_height="119dp"
         android:layout_marginTop="28dp"
-        android:text="Para crear un ''Grupo Familiar'' solo debes de dar al boton de crear en esta opcion, al crear el grupo tu seras el Administrador y podras invitar a mas usuarios"
+        android:text="@string/txtDesCEle"
         app:layout_constraintEnd_toEndOf="@+id/imageViewAdmin"
         app:layout_constraintStart_toStartOf="@+id/imageViewAdmin"
         app:layout_constraintTop_toTopOf="@+id/imageViewAdmin" />
@@ -96,7 +96,7 @@
         android:id="@+id/crear"
         android:layout_width="132dp"
         android:layout_height="62dp"
-        android:text="Crear"
+        android:text="@string/btnCreEle"
         style="@style/estilobutton"
         app:layout_constraintBottom_toBottomOf="@+id/imageViewAdmin"
         app:layout_constraintEnd_toEndOf="@+id/imageViewAdmin"

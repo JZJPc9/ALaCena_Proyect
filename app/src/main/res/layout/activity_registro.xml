@@ -23,7 +23,7 @@
         android:layout_width="237dp"
         android:layout_height="46dp"
         android:layout_marginTop="28dp"
-        android:text="Registro"
+        android:text="@string/txtTitReg"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
 
@@ -35,7 +35,7 @@
         android:layout_width="346dp"
         android:layout_height="21dp"
         android:layout_marginTop="12dp"
-        android:text="Ingrese sus datos de usuario"
+        android:text="@string/txtIngReg"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -53,7 +53,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Nombre(s)" />
+            android:hint="@string/txtNomReg" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -70,7 +70,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Apellido Paterno" />
+            android:hint="@string/txtPatReg" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -86,7 +86,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Apellido Materno" />
+            android:hint="@string/txtMatReg" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
@@ -95,7 +95,7 @@
         android:layout_width="195dp"
         android:layout_height="21dp"
         android:layout_marginTop="20dp"
-        android:text="Ingrese su correo electronico"
+        android:text="@string/txtCorReg"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.116"
         app:layout_constraintStart_toStartOf="parent"
@@ -118,7 +118,7 @@
         android:layout_width="186dp"
         android:layout_height="19dp"
         android:layout_marginTop="20dp"
-        android:text="Ingrese una contraseña"
+        android:text="@string/txtConReg"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.115"
         app:layout_constraintStart_toStartOf="parent"
@@ -140,7 +140,7 @@
         style="@style/estilotextview"
         android:layout_width="186dp"
         android:layout_height="19dp"
-        android:text="Confirme su contraseña"
+        android:text="@string/txtConCReg"
         android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.116"
@@ -163,7 +163,7 @@
         style="@style/estilobutton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Registrarte"
+        android:text="@string/btnRegReg"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

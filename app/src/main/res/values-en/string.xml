@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">alacena</string>
+
+    <!--Activity main -->
+    <string name="txtMain">indefinido</string>
+    <string name="btnLogMain">Sign in</string>
+    <string name="btnmRegMain">Sing up</string>
+
+    <!--Activity inicio de sesion -->
+    <string name="txtTitLog">Sign in</string>
+    <string name="txtCorLog">Enter your email</string>
+    <string name="txtConLog">Enter a password</string>
+    <string name="btnLogLog">Sign in</string>
+
+    <!--Activity Registro-->
+    <string name="txtTitReg">Sing up</string>
+    <string name="txtIngReg">Enter your user date</string>
+    <string name="txtNomReg">Name(s)</string>
+    <string name="txtPatReg">Last Name</string>
+    <string name="txtMatReg">Second Last Name</string>
+    <string name="txtCorReg">Enter your email</string>
+    <string name="txtConReg">Enter a password</string>
+    <string name="txtConCReg">Confirm a password</string>
+    <string name="btnRegReg">Sign up</string>
+
+    <!--Activity Elejir rol-->
+    <string name="txtTitEle">Choose a Role</string>
+    <string name="txtDesUnEle">To enter as a member you will have to request the creator of a Family Group enter the code below and click the Enter button</string>
+    <string name="txtCodEle">Code</string>
+    <string name="btnIngEle">Enter</string>
+    <string name="txtDesCEle">To create a Family Group you just have to click on the create button in this option, When you create the group you will be the Administrator and you will be able to invite more users</string>
+    <string name="btnCreEle">Create</string>
+
+    <!--barra para navegacion de fragment-->
+    <string name="txtInvFra">Inventory</string>
+    <string name="txtRecFra">Recipes</string>
+    <string name="txtLisFra">List</string>
+
+    <!--Menu Lateral desplegable-->
+    <string name="txtCorMen">E-mail:</string>
+    <string name="txtNomMen">name:</string>
+    <string name="txtIrCMen">Go to account settings</string>
+    <string name="txtIrGMen">Go to Group settings</string>
+    <string name="txtCodMen">code:</string>
+
+    <!--Activity configuracion de cuenta-->
+
+    <!--Activity configuracion de grupo-->
+
+    <!--Fragment Lista-->
+
+    <!--Fragment Inventario-->
+
+    <!--Fragment Recetas-->
+
+
+
+</resources>

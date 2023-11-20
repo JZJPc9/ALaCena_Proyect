@@ -1,8 +1,59 @@
 <resources>
     <string name="app_name">alacena</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 
-    <string name="navigation_drawer_open">Open Drawer</string>
-    <string name="navigation_drawer_close">Close Drawer</string>
+    <!--Activity main -->
+    <string name="txtMain">indefinido</string>
+    <string name="btnLogMain">iniciar sesión</string>
+    <string name="btnmRegMain">Crear Usuario</string>
+
+    <!--Activity inicio de sesion -->
+    <string name="txtTitLog">Inicio de Sesión</string>
+    <string name="txtCorLog">Ingrese su correo electronico</string>
+    <string name="txtConLog">Ingrese una contraseña</string>
+    <string name="btnLogLog">iniciar sesión</string>
+
+    <!--Activity Registro-->
+    <string name="txtTitReg">Registro</string>
+    <string name="txtIngReg">Ingrese sus datos de usuario</string>
+    <string name="txtNomReg">Nombre(s)</string>
+    <string name="txtPatReg">Apellido Paterno</string>
+    <string name="txtMatReg">Apellido Mterno</string>
+    <string name="txtCorReg">Ingrese su correo electronico</string>
+    <string name="txtConReg">Ingrese una contraseña</string>
+    <string name="txtConCReg">Confirma tu contraseña</string>
+    <string name="btnRegReg">Registrate</string>
+
+    <!--Activity Elejir rol-->
+    <string name="txtTitEle">Elejir un Rol</string>
+    <string name="txtDesUnEle">Para entrar como integrante tendras que solicitar a el creador de un Grupo Familiar ingrese el codigo a continuacion y da en el boton Ingresar</string>
+    <string name="txtCodEle">Codigo</string>
+    <string name="btnIngEle">Ingresar</string>
+    <string name="txtDesCEle">Para crear un Grupo Familiar solo debes de dar al boton de crear en esta opcion, al crear el grupo tu seras el Administrador y podras invitar a mas usuarios </string>
+    <string name="btnCreEle">Crear</string>
+
+    <!--barra para navegacion de fragment-->
+    <string name="txtInvFra">Inventario</string>
+    <string name="txtRecFra">Recetas</string>
+    <string name="txtLisFra">Lista</string>
+
+    <!--Menu Lateral desplegable-->
+    <string name="txtCorMen">correo:</string>
+    <string name="txtNomMen">name:</string>
+    <string name="txtIrCMen">Ir a configuración de cuenta</string>
+    <string name="txtIrGMen">Ir a configuracion del Grupo</string>
+    <string name="txtCodMen">codigo:</string>
+
+    <!--Activity configuracion de cuenta-->
+
+    <!--Activity configuracion de grupo-->
+
+    <!--Fragment Lista-->
+
+    <!--Fragment Inventario-->
+
+    <!--Fragment Recetas-->
+
+
+
+
 </resources>

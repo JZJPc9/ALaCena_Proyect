@@ -4,16 +4,16 @@
     <item
         android:id="@+id/inventario"
         android:icon="@drawable/inventario"
-        android:title="Inventario"/>
+        android:title="@string/txtInvFra"/>
 
     <item
         android:id="@+id/recetas"
         android:icon="@drawable/receta"
-        android:title="Recetas"/>
+        android:title="@string/txtRecFra"/>
 
     <item
         android:id="@+id/lista"
         android:icon="@drawable/lista"
-        android:title="Lista"/>
+        android:title="@string/txtLisFra"/>
 
 </menu>
