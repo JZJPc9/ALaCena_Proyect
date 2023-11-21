@@ -49,6 +49,7 @@
     <!--Activity configuracion de grupo-->
 
     <!--Fragment Lista-->
+    <string name="btnSubLis">submit</string>
 
     <!--Fragment Inventario-->
 

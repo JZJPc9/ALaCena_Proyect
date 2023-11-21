@@ -12,12 +12,12 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="top"
-        tools:listitem="@layout/res_lis_item"/>
+        tools:listitem="@layout/res_lis_item" />
 
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
+        android:layout_gravity="bottom|center_horizontal"
         android:backgroundTint="@color/cardview_shadow_end_color"
         android:src="@drawable/baseline_add_circle_24"
         android:visibility="visible" />
@@ -25,8 +25,8 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|center_horizontal"
-        android:text="agregar"
+        android:layout_gravity="bottom|end"
+        android:text="@string/btnSubLis"
         android:textSize="20dp"
         android:layout_margin="20dp"
         android:visibility="visible"/>

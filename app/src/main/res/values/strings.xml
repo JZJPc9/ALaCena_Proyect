@@ -48,6 +48,7 @@
     <!--Activity configuracion de grupo-->
 
     <!--Fragment Lista-->
+    <string name="btnSubLis">agregar</string>
 
     <!--Fragment Inventario-->
 

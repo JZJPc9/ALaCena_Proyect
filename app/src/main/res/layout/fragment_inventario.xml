@@ -5,11 +5,19 @@
     android:layout_height="match_parent"
     tools:context=".Inventario">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerLisCom"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Fragment inventario"
-        android:gravity="center"/>
+        android:layout_gravity="top"
+        tools:listitem="@layout/res_inv_item" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:backgroundTint="@color/cardview_shadow_end_color"
+        android:src="@drawable/baseline_add_circle_24"
+        android:visibility="visible"/>
 
 </FrameLayout>
