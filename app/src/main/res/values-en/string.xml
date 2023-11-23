@@ -45,6 +45,13 @@
     <string name="txtCodMen">code:</string>
 
     <!--Activity configuracion de cuenta-->
+    <string name="txtConCuen">Configure Account</string>
+    <string name="txtCamNom">Change name</string>
+    <string name="txtCamCor">Change email</string>
+    <string name="txtCamCon">Change password</string>
+    <string name="btnConfDat">Confirm data user change </string>
+    <string name="btnConfCamCor">Confirm E-mail change</string>
+    <string name="btnConfCon">Confirm password change</string>
 
     <!--Activity configuracion de grupo-->
 
