@@ -52,8 +52,11 @@
     <string name="btnSubLis">submit</string>
 
     <!--Fragment Inventario-->
+    <string name="txtDayInv"> days</string>
 
     <!--Fragment Recetas-->
+    <string name="txtIngRec">Ingredients</string>
+    <string name="txtPreRec">Preparation</string>
 
 
 

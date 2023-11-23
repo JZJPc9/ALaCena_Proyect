@@ -14,6 +14,10 @@
         <item name="android:textSize">30dp</item>
         <item name="android:textAlignment">center</item>
     </style>
+    <style name="estilotextsubtitle" parent="estilotextview">
+        <item name="android:textSize">15dp</item>
+        <item name="android:textAlignment">center</item>
+    </style>
 
     <style name="BottomNavigation">
         <item name="android:background">@color/orange</item>

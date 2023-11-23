@@ -51,8 +51,11 @@
     <string name="btnSubLis">agregar</string>
 
     <!--Fragment Inventario-->
+    <string name="txtDayInv"> dias</string>
 
     <!--Fragment Recetas-->
+    <string name="txtIngRec">Ingredientes:</string>
+    <string name="txtPreRec">Preparación:</string>
 
 
 

@@ -78,7 +78,7 @@ public class IngLisComAdapter extends ListAdapter <IngListCom, IngLisComAdapter.
                 }
             });
             /*
-            itemView.xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx(new View.OnClickListener() {
+            itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     objitemclick.onItemClick(ingListCom);
