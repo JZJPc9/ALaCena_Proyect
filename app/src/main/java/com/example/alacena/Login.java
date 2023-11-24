@@ -1,5 +1,4 @@
 package com.example.alacena;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -15,8 +14,7 @@ import android.widget.Toast;
 public class Login extends AppCompatActivity {
 
 
-
-    EditText correo,contrasena;
+    EditText correo, contrasena;
     ImageButton btnBack;
     Button btnLog;
 
@@ -28,7 +26,7 @@ public class Login extends AppCompatActivity {
         // Asociación de los elementos de frontend con el backend
         btnBack = findViewById(R.id.btnBack);
         btnLog = findViewById(R.id.btnLog);
-        contrasena=findViewById(R.id.editTextPassword);
+        contrasena = findViewById(R.id.editTextPassword);
         correo = findViewById(R.id.editTextEmailAddress);
 
         // Botón back
@@ -46,7 +44,10 @@ public class Login extends AppCompatActivity {
                 // Lógica del botón
                 if (!isValidEmail(correo.getText().toString())) {
                     // Mostrar Toast si no es un formato válido de correo
-                    Toast.makeText(Login.this, "Formato de correo inválido", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Login.this, getString(R.string.msjToCorLog) , Toast.LENGTH_SHORT).show();
+                } else if (!isValidPassword(contrasena.getText().toString())) {
+                    // Mostrar Toast si no es un formato válido de contraseña
+                    Toast.makeText(Login.this, "Formato de contraseña inválido", Toast.LENGTH_SHORT).show();
                 } else {
                     // Enviar datos y cambiar de actividad
                     Intent irmenu = new Intent(getApplicationContext(), Menuprin.class);
@@ -55,7 +56,7 @@ public class Login extends AppCompatActivity {
             }
         });
 
-        // Agrega un TextWatcher al EditText
+        // Agrega un TextWatcher al EditText de correo
         correo.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int start, int before, int count) {
@@ -81,5 +82,11 @@ public class Login extends AppCompatActivity {
     private boolean isValidEmail(String email) {
         // Puedes implementar aquí una validación más completa para el formato de correo
         return email.contains("@");
+    }
+
+    // Función para verificar el formato de contraseña
+    private boolean isValidPassword(String password) {
+        // Puedes implementar aquí una validación más compleja para el formato de contraseña
+        return password.length() >= 8;
     }
 }

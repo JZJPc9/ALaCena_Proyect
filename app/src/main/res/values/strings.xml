@@ -65,6 +65,11 @@
     <string name="txtPreRec">Preparación:</string>
 
 
+    <!-- toast configuracion -->
+
+    <string name="msjToCorLog">Formato de correo inválido</string>
+
+
 
 
 </resources>

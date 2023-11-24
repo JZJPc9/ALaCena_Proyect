@@ -5,6 +5,6 @@ import android.view.View;
 import com.example.alacena.clases.IngListCom;
 
 public interface LOnItemClickListener {
-    public void onItemClick(View view);
+    public void onItemClick(IngListCom ingListCom);
 
 }

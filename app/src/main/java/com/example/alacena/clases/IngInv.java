@@ -7,42 +7,29 @@ import java.util.Date;
 
 public class IngInv {
 
-    public String nombre;
+    private int id;
+    private String nombre;
+    private String fecFin;
+    private double cantidad;
 
-    public String fecFin;
-
-    public int cantidad;
-
-    public IngInv(String nombreIng, String fecFinIng, Integer canIng){
+    public IngInv(int id, String nombreIng, String fecFinIng, int canIng){
+        this.id = id;
         this.nombre = nombreIng;
         this.fecFin = fecFinIng;
         this.cantidad = canIng;
     }
 
+    public int getId() {return id;}
+    public void setId(int id) {this.id = id;}
 
-    public String getNombre() {
-        return nombre;
-    }
+    public String getNombre() {return nombre;}
+    public void setNombre(String nombre) {this.nombre = nombre;}
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
+    public String getFecFin() {return fecFin;}
+    public void setFecFin(String fecFin) {this.fecFin = fecFin;}
 
-    public String getFecFin() {
-        return fecFin;
-    }
-
-    public void setFecFin(String fecFin) {
-        this.fecFin = fecFin;
-    }
-
-    public int getCantidad() {
-        return cantidad;
-    }
-
-    public void setCantidad(int cantidad) {
-        this.cantidad = cantidad;
-    }
+    public double getCantidad() {return cantidad;}
+    public void setCantidad(double cantidad) {this.cantidad = cantidad;}
 
 
     public int getTimeTerm(){

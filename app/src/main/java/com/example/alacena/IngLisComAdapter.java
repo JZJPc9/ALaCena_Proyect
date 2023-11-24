@@ -68,7 +68,7 @@ public class IngLisComAdapter extends ListAdapter <IngListCom, IngLisComAdapter.
 
         public void bind (IngListCom ingListCom){
             nomitemLis.setText(ingListCom.getNombre());
-            cantitemlis.setText(ingListCom.getCantidad().toString());
+            cantitemlis.setText(String.valueOf(ingListCom.getCantidad()));
             checkCom.setSelected(ingListCom.isCheck());
             //Esta sera una prueba de uso de el boton del recurso item
             elimItem.setOnClickListener(new View.OnClickListener() {
@@ -77,15 +77,7 @@ public class IngLisComAdapter extends ListAdapter <IngListCom, IngLisComAdapter.
                     Toast.makeText(itemView.getContext(), "Prueba"+ ingListCom.getNombre(),Toast.LENGTH_SHORT).show();
                 }
             });
-            /*
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    objitemclick.onItemClick(ingListCom);
-                }
-            });
 
-             */
 
         }
 

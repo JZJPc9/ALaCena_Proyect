@@ -19,8 +19,7 @@ public class Lista extends Fragment {
     public Lista() {}
     View view;
 
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         RecyclerView recyclerLisCom;
         super.onCreate(savedInstanceState);
@@ -33,21 +32,15 @@ public class Lista extends Fragment {
         recyclerLisCom.setLayoutManager(new LinearLayoutManager(getContext()));
 
         ArrayList<IngListCom>inglistcom = new ArrayList<>();
-        inglistcom.add(new IngListCom("papa",2,true));
-        inglistcom.add(new IngListCom("jitomate",3,false));
+        inglistcom.add(new IngListCom(1,"papa",2,true));
+        inglistcom.add(new IngListCom(2,"jitomate",3,false));
 
         IngLisComAdapter ingLisComAdapter = new IngLisComAdapter();
 
 
 
-        /*
-        ingLisComAdapter.setOnItemClickListener(new LOnItemClickListener() {
-            @Override
-            public void onItemClick(IngListCom ingListCom) {
-                Toast.makeText(getContext(),ingListCom.getNombre(),Toast.LENGTH_SHORT).show();
-            }
-        });
-        */
+
+
 
         recyclerLisCom.setAdapter(ingLisComAdapter);
         ingLisComAdapter.submitList(inglistcom);

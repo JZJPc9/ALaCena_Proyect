@@ -40,7 +40,7 @@ public class Inventario extends Fragment {
 
 
 
-        ingInv.add(new IngInv("Cebolla","2023-11-23",1));
+        ingInv.add(new IngInv(1,"Cebolla","2023-11-23",1));
 
 
         IngInvAdapter ingInvAdapter = new IngInvAdapter();

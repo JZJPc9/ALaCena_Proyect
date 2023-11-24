@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 //imports de android recicler view
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -22,10 +23,24 @@ public class Recetas extends Fragment {
     View view;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
+        RecyclerView recyclerRec;
+        super.onCreate(savedInstanceState);
         view = inflater.inflate(R.layout.fragment_recetas, container, false);
+
+        recyclerRec = view.findViewById(R.id.recyclerRec);
+
+        recyclerRec.setLayoutManager(new GridLayoutManager(getContext()));
+
+        
+
+
+
+
+
+
+
         return view;
     }
 }
