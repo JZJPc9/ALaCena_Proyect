@@ -66,8 +66,11 @@
     <string name="txtPreRec">Preparation</string>
 
 
-    <!--toast-->
-    <string name="msjToCorLog">Invalid format of E-mail</string>
+    <!--Mensaje toast-->
+    <string name="msjToaCorLog">Enter Email</string>
+    <string name="msjToaConLog">Enter a password of at least 8 characters</string>
+    <string name="msjToaConReg">Passwords do not match</string>
+    <string name="msjToaTodosReg">Enter a password of at least 8 characters</string>
 
 
 

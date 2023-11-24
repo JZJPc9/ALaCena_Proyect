@@ -31,9 +31,9 @@ public class Recetas extends Fragment {
 
         recyclerRec = view.findViewById(R.id.recyclerRec);
 
-        recyclerRec.setLayoutManager(new GridLayoutManager(getContext()));
+        //recyclerRec.setLayoutManager(new GridLayoutManager());
 
-        
+
 
 
 
