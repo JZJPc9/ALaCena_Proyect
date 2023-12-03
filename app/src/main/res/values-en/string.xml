@@ -3,7 +3,7 @@
     <string name="app_name">alacena</string>
 
     <!--Activity main -->
-    <string name="txtMain">indefinido</string>
+    <string name="txtMain">Developed by the  ``The Dictators´´ team:  \n \n 1.Chanona Hernandez Saúl Xavier \n 2.Estella Huerta Angel \n 3.Garza Robles Gerardo \n 4.Jimenez Zea Juan Pablo \n 5.Vazquez Santiago Alejandro Jonathan</string>
     <string name="btnLogMain">Sign in</string>
     <string name="btnmRegMain">Sing up</string>
 
@@ -60,6 +60,8 @@
 
     <!--Fragment Inventario-->
     <string name="txtDayInv"> days</string>
+    <string name="txtEditInv">Edit</string>
+    <string name="txtElimInv">Delete</string>
 
     <!--Fragment Recetas-->
     <string name="txtIngRec">Ingredients</string>
@@ -71,6 +73,30 @@
     <string name="msjToaConLog">Enter a password of at least 8 characters</string>
     <string name="msjToaConReg">Passwords do not match</string>
     <string name="msjToaTodosReg">Enter a password of at least 8 characters</string>
+    <string name="msjToCamReg">enter all fields </string>
+    <string name="msjToaNonLog">Incorrect email and/or password</string>
+
+
+    <!--Activity agregar a Lista-->
+    <string name="txtTitLis">Input ingredient to list</string>
+    <string name="txtCanLis">Input amount ingrediente</string>
+    <string name="txtNomLis">Input Name ingredient</string>
+    <string name="ButGuar">Save Change </string>
+
+    <!--Activity agregar a Inventario-->
+    <string name="txtTitInv">Input ingredient to list</string>
+    <string name="txtCanInv">Input amount ingrediente</string>
+    <string name="txtNomInv">Input Name ingredient</string>
+    <string name="txtFecInv">Input Date of used</string>
+
+    <!--Activity agregar Receta-->
+    <string name="txtTitRec">Input Recipes to Reciping</string>
+    <string name="txtNomRec">Input Name Recipe</string>
+    <string name="txtIngR">Input Ingredients of Recipe</string>
+    <string name="txtPreR">Input the preparation of Recipe</string>
+    <string name="txtCanI">amount:</string>
+    <string name="txtNomI">Name:</string>
+    <string name="confirm">Confirm</string>
 
 
 

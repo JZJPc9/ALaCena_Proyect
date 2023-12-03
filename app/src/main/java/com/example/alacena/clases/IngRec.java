@@ -6,6 +6,11 @@ public class IngRec {
     private String nombre;
     private double cantidad;
 
+    public  IngRec(String nombre, double cantidad){
+        this.nombre = nombre;
+        this.cantidad = cantidad;
+    }
+
     public IngRec(int id, String nombre, double cantidad) {
         this.id = id;
         this.nombre = nombre;

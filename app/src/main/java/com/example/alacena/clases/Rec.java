@@ -31,7 +31,7 @@ public class Rec {
 
     public String ingformatter(){
 
-        String form = null;
+        String form = "";
 
         for(IngRec ingRec : ingredients){
             form += ingRec.getNombre() + "   " +String.valueOf(ingRec.getCantidad() + " pz " + "\n" );

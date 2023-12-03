@@ -3,7 +3,6 @@ package com.example.alacena;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -11,6 +10,7 @@ import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.alacena.clases.Rec;
+import com.example.alacena.interf.ROnItemClickListener;
 
 public class RecAdapter extends ListAdapter <Rec, RecAdapter.RecViewHolder>{
 

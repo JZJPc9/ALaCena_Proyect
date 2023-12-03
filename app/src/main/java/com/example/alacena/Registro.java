@@ -55,9 +55,9 @@ public class Registro extends AppCompatActivity {
                 } else {
                     // Muestra un mensaje de error apropiado según la condición que no se cumple
                     if (!contrasenasIguales()) {
-                        Toast.makeText(Registro.this, "Las contraseñas no coinciden", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Registro.this, getString(R.string.msjToaConReg), Toast.LENGTH_SHORT).show();
                     } else {
-                        Toast.makeText(Registro.this, "Completa todos los campos requeridos y verifica el formato del correo", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Registro.this, getString(R.string.msjToCamReg), Toast.LENGTH_SHORT).show();
                     }
                 }
             }

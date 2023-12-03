@@ -2,7 +2,7 @@
     <string name="app_name">alacena</string>
 
     <!--Activity main -->
-    <string name="txtMain">indefinido</string>
+    <string name="txtMain">Desarrollado por el equipo ``The Dictamens´´: \n \n 1.Chanona Hernandez Saúl Xavier \n 2.Estella Huerta Angel \n 3.Garza Robles Gerardo \n 4.Jimenez Zea Juan Pablo \n 5.Vazquez Santiago Alejandro Jonathan </string>
     <string name="btnLogMain">iniciar sesión</string>
     <string name="btnmRegMain">Crear Usuario</string>
 
@@ -59,23 +59,42 @@
 
     <!--Fragment Inventario-->
     <string name="txtDayInv"> dias</string>
+    <string name="txtEditInv">Editar</string>
+    <string name="txtElimInv">Eliminar</string>
 
     <!--Fragment Recetas-->
     <string name="txtIngRec">Ingredientes:</string>
     <string name="txtPreRec">Preparación:</string>
 
 
-    <!-- toast configuracion -->
-
-    <string name="msjToCorLog">Formato de correo inválido</string>
-
     <!--Mensaje toast-->
     <string name="msjToaCorLog">Ingresa Correo</string>
     <string name="msjToaConLog">Ingresa una contraseña de minimo 8 caracteres</string>
     <string name="msjToaConReg">Las contraseñas no coinciden</string>
     <string name="msjToaTodosReg">Ingresa una contraseña de minimo 8 caracteres</string>
+    <string name="msjToCamReg">ingresa todo los campos</string>
+    <string name="msjToaNonLog">Correo y/o contraseña incorrectos</string>
 
+    <!--Activity agregar a Lista-->
+    <string name="txtTitLis">Ingresar ingrediente a la lista</string>
+    <string name="txtCanLis">Ingresar Cantidad del ingrediente</string>
+    <string name="txtNomLis">Ingresar Nombre del ingrediente</string>
+    <string name="ButGuar">Guardar cambios </string>
 
+    <!--Activity agregar a Inventario-->
+    <string name="txtTitInv">Ingresar ingrediente al Inventario</string>
+    <string name="txtCanInv">Ingresar Cantidad del ingrediente</string>
+    <string name="txtNomInv">Ingresar Nombre del ingrediente</string>
+    <string name="txtFecInv">Ingresa una fecha de uso</string>
+
+    <!--Activity agregar Receta-->
+    <string name="txtTitRec">Ingresar Receta al Recetario</string>
+    <string name="txtNomRec">Ingresar Nombre de la receta</string>
+    <string name="txtIngR">Ingresa los ingredientes de la receta</string>
+    <string name="txtPreR">Ingresa la preparacion de la receta</string>
+    <string name="txtCanI">Cantidad:</string>
+    <string name="txtNomI">Nombre:</string>
+    <string name="confirm">Confirmar</string>
 
 
 </resources>

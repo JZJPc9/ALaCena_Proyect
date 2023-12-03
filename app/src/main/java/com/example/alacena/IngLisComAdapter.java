@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.alacena.clases.IngListCom;
+import com.example.alacena.interf.LOnItemClickListener;
 
 
 public class IngLisComAdapter extends ListAdapter <IngListCom, IngLisComAdapter.IngLisComViewHolder>{
