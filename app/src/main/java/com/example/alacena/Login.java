@@ -17,6 +17,7 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.example.alacena.DB.DBHelper;
+import com.example.alacena.clases.Cifrado;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -72,7 +73,8 @@ public class Login extends AppCompatActivity {
 
                         if(corrs != null && corrs.moveToFirst()){
 
-                            if(corrs.getString(corrs.getColumnIndexOrThrow("pass_dat")).equals(contrasena.getText().toString())){
+                            String contra = Cifrado.descifrar(corrs.getString(corrs.getColumnIndexOrThrow("pass_dat")));
+                            if(contra.equals(contrasena.getText().toString())){
 
                                 String usuObt[] = {"id_rol","id_gfa"};
                                 String argSelUsu[] ={corrs.getString(corrs.getColumnIndexOrThrow("id_dat"))};
@@ -80,7 +82,8 @@ public class Login extends AppCompatActivity {
 
                                 if(usua != null && usua.moveToFirst()) {
 
-                                    String grupFam = String.valueOf(usua.getInt(usua.getColumnIndexOrThrow("id_gfa")));
+                                    String grupFam = Cifrado.cifrar(String.valueOf(usua.getInt(usua.getColumnIndexOrThrow("id_gfa"))));
+                                    String cifcorr = Cifrado.cifrar(correo.getText().toString());
 
                                     File ruta = getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS);
                                     File sessionBol = new File(ruta, "sessionBol.dat");
@@ -92,7 +95,7 @@ public class Login extends AppCompatActivity {
                                         fosBol.write("1".getBytes());
 
                                         FileOutputStream fosCor = new FileOutputStream(sessionCor);
-                                        fosCor.write(correo.getText().toString().getBytes());
+                                        fosCor.write(cifcorr.getBytes());
 
                                         FileOutputStream fosGru = new FileOutputStream(sessionGru);
                                         fosGru.write(grupFam.getBytes());
@@ -128,30 +131,6 @@ public class Login extends AppCompatActivity {
                 }
             }
         });
-
-
-        /*
-        // Agrega un TextWatcher al EditText de correo
-        correo.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int start, int before, int count) {
-                // No se necesita acción antes de cambiar el texto
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int start, int before, int count) {
-                // No se necesita acción durante el cambio del texto
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-                // Verifica si el texto contiene un arroba
-                if (!editable.toString().contains("@")) {
-                    // Si no contiene un arroba, agrégalo al final
-                }
-            }
-        });
-         */
     }
 
     // Función para verificar el formato de correo electrónico

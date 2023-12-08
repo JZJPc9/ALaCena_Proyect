@@ -2,15 +2,28 @@ package com.example.alacena;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.ContentValues;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.os.Environment;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
+
+import com.example.alacena.DB.DBHelper;
+import com.example.alacena.clases.Cifrado;
 import com.google.android.material.textfield.TextInputLayout;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
 public class Registro extends AppCompatActivity {
 
@@ -50,8 +63,63 @@ public class Registro extends AppCompatActivity {
                 if (camposLlenos() && isValidEmail(correo.getText().toString()) && contrasenasIguales()) {
                     // Todos los campos requeridos están llenos, el correo tiene un formato válido,
                     // y las contraseñas coinciden, puedes avanzar a la siguiente actividad
-                    Intent elerol = new Intent(getApplicationContext(), ElecRol.class);
-                    startActivity(elerol);
+                    DBHelper dbHelper = new DBHelper(getApplicationContext());
+                    SQLiteDatabase dbW = dbHelper.getWritableDatabase();
+                    SQLiteDatabase dbR = dbHelper.getReadableDatabase();
+                    //insertar datos de usuario
+                    String corr = correo.getText().toString();
+                    String conEnc = Cifrado.cifrar(contrasena.getText().toString());
+
+                    //validacion de existencia
+                    
+
+
+                    ContentValues valuesDU = new ContentValues();
+                    valuesDU.put("corr_dat",corr);
+                    valuesDU.put("pass_dat",conEnc);
+                    dbW.insert("DatosUsuario",null,valuesDU);
+                    //lectura para saber id datauser
+                    String obtDat[] = {"id_dat"};
+                    String argDat[] = {corr};
+                    Cursor iddat = dbR.query("DatosUsuario",obtDat,"corr_dat = ?",argDat,null,null,null);
+                    //insercion en usuario
+                    if (iddat != null && iddat.moveToFirst()){
+                        ContentValues valuesU = new ContentValues();
+                        valuesU.put("nom_usu",nombre.getEditText().toString());
+                        valuesU.put("app_usu",apellidop.getEditText().toString());
+                        valuesU.put("apm_usu",apellidom.getEditText().toString());
+                        valuesU.put("id_dat",iddat.getInt(iddat.getColumnIndexOrThrow("id_dat")));
+                        dbW.insert("Usuario",null,valuesU);
+
+                        //creacion de la sesion parciol
+                        File ruta = getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS);
+                        File sessionBol = new File(ruta, "sessionBol.dat");
+                        File sessionCor = new File(ruta, "sessionCor.dat");
+                        try {
+                            FileOutputStream fosBol = new FileOutputStream(sessionBol);
+                            fosBol.write("1".getBytes());
+
+                            FileOutputStream fosCor = new FileOutputStream(sessionCor);
+                            fosCor.write(Cifrado.cifrar(corr).getBytes());
+
+                            fosBol.close();
+                            fosCor.close();
+                        }catch (FileNotFoundException e) {
+                            Log.e("ErrArchiv", String.valueOf(e));
+                        } catch (IOException e) {
+                            Log.e("ErrArchiv", String.valueOf(e));
+                        }
+
+
+
+                    }
+                    iddat.close();
+                    dbW.close();
+                    dbR.close();
+
+                    Intent irEle = new Intent(getApplicationContext(), ElecRol.class);
+                    startActivity(irEle);
+
                 } else {
                     // Muestra un mensaje de error apropiado según la condición que no se cumple
                     if (!contrasenasIguales()) {
@@ -73,9 +141,9 @@ public class Registro extends AppCompatActivity {
             }
 
             private boolean camposLlenos() {
-                String nombreText = nombre.getEditText().getText().toString();
-                String apellidopText = apellidop.getEditText().getText().toString();
-                String apellidomText = apellidom.getEditText().getText().toString();
+                String nombreText = nombre.getEditText().toString();
+                String apellidopText = apellidop.getEditText().toString();
+                String apellidomText = apellidom.getEditText().toString();
                 String contrasenaText = contrasena.getText().toString();
                 String concontrasenaText = confContrasena.getText().toString();
                 String correoText = correo.getText().toString();

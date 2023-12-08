@@ -139,6 +139,9 @@ public class DBHelper extends SQLiteOpenHelper {
                 "AUTOINCREMENT)" +
                 ")");
 
+        dbAlacena.execSQL("INSERT INTO Rol (nom_rol) VALUES ('Admin');");
+        dbAlacena.execSQL("INSERT INTO Rol (nom_rol) VALUES ('Inte');");
+
 
     }
 
