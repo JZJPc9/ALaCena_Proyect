@@ -9,14 +9,24 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Environment;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.alacena.clases.Cifrado;
 import com.google.android.material.navigation.NavigationBarView;
 
 import androidx.drawerlayout.widget.DrawerLayout;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 
 public class Menuprin extends AppCompatActivity {
 
@@ -32,7 +42,7 @@ public class Menuprin extends AppCompatActivity {
     ImageButton navhorbutton;
 
     //text de opciones
-    TextView textCuenta,textGrupo;
+    TextView textCuenta,textGrupo,textClose,textNombre,textCorreo;
 
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +57,38 @@ public class Menuprin extends AppCompatActivity {
         //opciones de texto
         textCuenta = findViewById(R.id.textCuenta);
         textGrupo = findViewById(R.id.textGrupo);
+        textClose = findViewById(R.id.textClose);
+        textNombre = findViewById(R.id.textNombre);
+        textCorreo = findViewById(R.id.textCorreo);
+
+        //damos la informacion al front
+        Charset character = StandardCharsets.UTF_8;
+        File ruta = getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS);
+        File sessionCor = new File(ruta,"sessionCor.dat");
+        String contentc;
+
+        try {
+            FileInputStream fisCor = new FileInputStream(sessionCor);
+            byte[] bytesCor = new byte[(int) sessionCor.length()];
+            fisCor.read(bytesCor);
+            contentc = new String(bytesCor,character);
+
+            String inp = Cifrado.descifrar(contentc);
+
+            Toast.makeText(getApplicationContext(),inp,Toast.LENGTH_SHORT).show();
+
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    textCorreo.setText(inp);
+                }
+            });
+
+
+        }catch (Exception e){
+            Log.e("SESSION",e.toString());
+        }
+
 
 
         //escucha de barra de navegacion
@@ -100,6 +142,23 @@ public class Menuprin extends AppCompatActivity {
         });
 
 
+        textClose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                File ruta = getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS);
+                File sessionBol = new File(ruta, "sessionBol.dat");
+                try{
+                    FileOutputStream fosbol = new FileOutputStream(sessionBol);
+                    fosbol.write("0".getBytes());
+                    fosbol.close();
+                }catch (Exception e){
+                    Log.e("SESSION","error al reasignar");
+                }
+                Intent mainAct = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(mainAct);
+                finish();
+            }
+        });
 
 
 

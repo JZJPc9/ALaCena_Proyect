@@ -47,6 +47,8 @@ public class Login extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // Lógica del botón
+                Intent irmain = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(irmain);
                 finish();
             }
         });
@@ -82,7 +84,8 @@ public class Login extends AppCompatActivity {
 
                                 if(usua != null && usua.moveToFirst()) {
 
-                                    String grupFam = Cifrado.cifrar(String.valueOf(usua.getInt(usua.getColumnIndexOrThrow("id_gfa"))));
+                                    String grupFam = String.valueOf(usua.getInt(usua.getColumnIndexOrThrow("id_gfa")));
+                                    Log.i("GrupoFamiliar",grupFam);
                                     String cifcorr = Cifrado.cifrar(correo.getText().toString());
 
                                     File ruta = getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS);
@@ -105,19 +108,20 @@ public class Login extends AppCompatActivity {
                                         fosGru.close();
 
                                     } catch (FileNotFoundException e) {
-                                        Log.e("ErrArchiv", String.valueOf(e));
+                                        Log.e("ErrArchivo", String.valueOf(e));
                                     } catch (IOException e) {
-                                        Log.e("ErrArchiv", String.valueOf(e));
+                                        Log.e("ErrArchivo", String.valueOf(e));
                                     }
-
-                                    Intent irmenu = new Intent(getApplicationContext(), Menuprin.class);
-                                    startActivity(irmenu);
+                                }else{
                                 }
                                 usua.close();
+                                Intent irmenu = new Intent(getApplicationContext(), Menuprin.class);
+                                startActivity(irmenu);
+                                finish();
+
                             }else{
                                 Toast.makeText(getApplicationContext(),getString(R.string.msjToaNonLog),Toast.LENGTH_SHORT).show();
                             }
-
 
                         }else{
                             Toast.makeText(getApplicationContext(),getString(R.string.msjToaNonLog),Toast.LENGTH_SHORT).show();

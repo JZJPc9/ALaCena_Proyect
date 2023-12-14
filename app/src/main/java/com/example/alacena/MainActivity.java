@@ -38,10 +38,17 @@ public class MainActivity extends AppCompatActivity {
         File sessionBol = new File(ruta,"sessionBol.dat");
         File sessionCor = new File(ruta,"sessionCor.dat");
         File sessionGru = new File(ruta, "sessionGru.dat");
+
         try {
             if (sessionBol.exists() && sessionCor.exists() && sessionGru.exists()){
 
                 Charset character = StandardCharsets.UTF_8;
+
+                //archivp, id de grupo familiar
+                FileInputStream fisGru = new FileInputStream(sessionGru);
+                byte[] bytesGru = new byte[(int) sessionGru.length()];
+                fisGru.read(bytesGru);
+                String contentg = new String(bytesGru,character);
 
                //archivo session valida (True, False)
                 FileInputStream fisBol = new FileInputStream(sessionBol);
@@ -52,38 +59,35 @@ public class MainActivity extends AppCompatActivity {
                 //archivo, correo de session
                 FileInputStream fisCor = new FileInputStream(sessionCor);
                 byte[] bytesCor = new byte[(int) sessionCor.length()];
-                fisCor.read(bytesBol);
+                fisCor.read(bytesCor);
                 String contentc = new String(bytesBol,character);
 
-                //archivp, id de grupo familiar
-                FileInputStream fisGru = new FileInputStream(sessionGru);
-                byte[] bytesGru = new byte[(int) sessionGru.length()];
-                fisGru.read(bytesGru);
-                String contentg = new String(bytesGru,character);
 
-                //Log.i("Datos","configuracion de los archivos: " + contents + contentg + contentc);
-
-
-                if (contents.equals("1") && !contentc.isEmpty() && !contentg.isEmpty()){
-                    Log.i("SESSION","session valida");
-                    Intent intentMenu = new Intent(getApplicationContext(), Menuprin.class);
-                    startActivity(intentMenu);
+                if(contentg.equals("1") && !contentc.isEmpty() && !contents.isEmpty()){
+                    if(contents.equals("1")){
+                        Log.i("SESSION","session validad");
+                        Intent intentmen = new Intent(getApplicationContext(), Menuprin.class);
+                        startActivity(intentmen);
+                        finish();
+                    }else{
+                        Log.i("SESSION", "sesion invalida");
+                    }
+                }else if(contents.isEmpty()){
+                    Log.i("SESSION", "Algun archivo esta vacio");
+                    Intent intentele = new Intent(getApplicationContext(), ElecRol.class);
+                    startActivity(intentele);
                     finish();
-                } else if (contents.equals("1") && !contentc.isEmpty() && contentg.isEmpty()) {
-                    Log.i("SESSION","session sin equipo");
-                    Intent intentEle = new Intent(getApplicationContext(), ElecRol.class);
-                    startActivity(intentEle);
-                    finish();
-                }else if (contents.equals("0")){
-                    Log.i("SESSION", "Sesion invalida");
+                }else{
+                    Log.i("SESSION", "algun otro archivo esta vacio");
                 }
 
 
-                fisGru.close();
-                fisBol.close();
-                fisCor.close();
+            }else if(sessionBol.exists() && sessionCor.exists() && !sessionGru.exists()){
+                Log.e("SESSION","Archivo de grupo no encontrado");
+                Intent intentele = new Intent(getApplicationContext(), ElecRol.class);
+                startActivity(intentele);
             }else{
-                Log.i("SESSION", "Archivo de session no encontrado");
+                Log.i("SESSION","Archivos no encontrados");
             }
 
         }catch (IOException e){
@@ -101,6 +105,7 @@ public class MainActivity extends AppCompatActivity {
                 //Crear la logica de el boton
                 Intent irreg = new Intent(getApplicationContext(), Registro.class);
                 startActivity(irreg);
+                finish();
 
             }
         });
@@ -108,17 +113,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                try {
-                    DBHelper dbHelper = new DBHelper(getApplicationContext());
-                    SQLiteDatabase db = dbHelper.getWritableDatabase();
-                    dbHelper.close();
-                    //Toast.makeText(getApplicationContext(),"db creada",Toast.LENGTH_SHORT).show();
-                }catch (Exception e){
-                    Log.e("SQLITE",String.valueOf(e));
-                }
                 //Crear la logica de el boton
                 Intent irlog = new Intent(getApplicationContext(),Login.class);
                 startActivity(irlog);
+                finish();
             }
         });
 

@@ -42,6 +42,7 @@
     <string name="txtNomMen">name:</string>
     <string name="txtIrCMen">Go to account settings</string>
     <string name="txtIrGMen">Go to Group settings</string>
+    <string name="txtCerrarSession">Log-out</string>
     <string name="txtCodMen">code:</string>
 
     <!--Activity configuracion de cuenta-->
@@ -75,6 +76,8 @@
     <string name="msjToaTodosReg">Enter a password of at least 8 characters</string>
     <string name="msjToCamReg">enter all fields </string>
     <string name="msjToaNonLog">Incorrect email and/or password</string>
+    <string name="msjToaExiUser">The email is already registered with another user</string>
+    <string name="msjToaNotGru">Grup not found</string>
 
 
     <!--Activity agregar a Lista-->

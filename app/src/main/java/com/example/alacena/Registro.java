@@ -52,6 +52,8 @@ public class Registro extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //Logica de el boton
+                Intent irmain = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(irmain);
                 finish();
             }
         });
@@ -71,49 +73,62 @@ public class Registro extends AppCompatActivity {
                     String conEnc = Cifrado.cifrar(contrasena.getText().toString());
 
                     //validacion de existencia
-                    
-
-
-                    ContentValues valuesDU = new ContentValues();
-                    valuesDU.put("corr_dat",corr);
-                    valuesDU.put("pass_dat",conEnc);
-                    dbW.insert("DatosUsuario",null,valuesDU);
-                    //lectura para saber id datauser
                     String obtDat[] = {"id_dat"};
                     String argDat[] = {corr};
-                    Cursor iddat = dbR.query("DatosUsuario",obtDat,"corr_dat = ?",argDat,null,null,null);
-                    //insercion en usuario
-                    if (iddat != null && iddat.moveToFirst()){
-                        ContentValues valuesU = new ContentValues();
-                        valuesU.put("nom_usu",nombre.getEditText().toString());
-                        valuesU.put("app_usu",apellidop.getEditText().toString());
-                        valuesU.put("apm_usu",apellidom.getEditText().toString());
-                        valuesU.put("id_dat",iddat.getInt(iddat.getColumnIndexOrThrow("id_dat")));
-                        dbW.insert("Usuario",null,valuesU);
+                    Cursor comprobacion = dbR.query("DatosUsuario",obtDat,"corr_dat = ?",argDat,null,null,null);
 
-                        //creacion de la sesion parciol
-                        File ruta = getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS);
-                        File sessionBol = new File(ruta, "sessionBol.dat");
-                        File sessionCor = new File(ruta, "sessionCor.dat");
-                        try {
-                            FileOutputStream fosBol = new FileOutputStream(sessionBol);
-                            fosBol.write("1".getBytes());
+                    if(comprobacion != null && comprobacion.moveToFirst()){
+                        //regitro ya creado
+                        Toast.makeText(getApplicationContext(),getString(R.string.msjToaExiUser),Toast.LENGTH_SHORT).show();
 
-                            FileOutputStream fosCor = new FileOutputStream(sessionCor);
-                            fosCor.write(Cifrado.cifrar(corr).getBytes());
+                    }else{
+                        //registro si no existe
 
-                            fosBol.close();
-                            fosCor.close();
-                        }catch (FileNotFoundException e) {
-                            Log.e("ErrArchiv", String.valueOf(e));
-                        } catch (IOException e) {
-                            Log.e("ErrArchiv", String.valueOf(e));
+
+                        ContentValues valuesDU = new ContentValues();
+                        valuesDU.put("corr_dat",corr);
+                        valuesDU.put("pass_dat",conEnc);
+                        dbW.insert("DatosUsuario",null,valuesDU);
+                        //lectura para saber id datauser
+                        Cursor iddat = dbR.query("DatosUsuario",obtDat,"corr_dat = ?",argDat,null,null,null);
+                        //insercion en usuario
+                        if (iddat != null && iddat.moveToFirst()){
+                            
+                            ContentValues valuesU = new ContentValues();
+                            valuesU.put("nom_usu",nombre.getEditText().getText().toString());
+                            valuesU.put("app_usu",apellidop.getEditText().getText().toString());
+                            valuesU.put("apm_usu",apellidom.getEditText().getText().toString());
+                            valuesU.put("id_dat",iddat.getInt(iddat.getColumnIndexOrThrow("id_dat")));
+                            dbW.insert("Usuario",null,valuesU);
+
+                            //creacion de la sesion parciol
+                            File ruta = getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS);
+                            File sessionBol = new File(ruta, "sessionBol.dat");
+                            File sessionCor = new File(ruta, "sessionCor.dat");
+                            try {
+                                FileOutputStream fosBol = new FileOutputStream(sessionBol);
+                                fosBol.write("1".getBytes());
+
+                                FileOutputStream fosCor = new FileOutputStream(sessionCor);
+                                fosCor.write(Cifrado.cifrar(corr).getBytes());
+
+                                fosBol.close();
+                                fosCor.close();
+                            }catch (FileNotFoundException e) {
+                                Log.e("ErrArchiv", String.valueOf(e));
+                            } catch (IOException e) {
+                                Log.e("ErrArchiv", String.valueOf(e));
+                            }
+
+
+
                         }
-
-
-
+                        iddat.close();
                     }
-                    iddat.close();
+
+
+
+                    comprobacion.close();
                     dbW.close();
                     dbR.close();
 

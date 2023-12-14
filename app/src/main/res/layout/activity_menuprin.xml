@@ -39,11 +39,21 @@
         <TextView
             android:id="@+id/textGrupo"
             android:layout_marginStart="10dp"
+            android:visibility="invisible"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
             android:text="@string/txtIrGMen"
             android:layout_marginTop="250dp"/>
+
+        <TextView
+            android:id="@+id/textClose"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="300dp"
+            android:textColor="@color/black"
+            android:text="@string/txtCerrarSession"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
 
 
         <TextView

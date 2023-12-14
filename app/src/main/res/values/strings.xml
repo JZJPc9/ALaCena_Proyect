@@ -41,6 +41,7 @@
     <string name="txtNomMen">name:</string>
     <string name="txtIrCMen">Ir a configuración de cuenta</string>
     <string name="txtIrGMen">Ir a configuracion del Grupo</string>
+    <string name="txtCerrarSession">Cerrar Seción</string>
     <string name="txtCodMen">codigo:</string>
 
     <!--Activity configuracion de cuenta-->
@@ -74,6 +75,8 @@
     <string name="msjToaTodosReg">Ingresa una contraseña de minimo 8 caracteres</string>
     <string name="msjToCamReg">ingresa todo los campos</string>
     <string name="msjToaNonLog">Correo y/o contraseña incorrectos</string>
+    <string name="msjToaExiUser">El correo ya esta registrado con otro usuario</string>
+    <string name="msjToaNotGru">Grupo no encontrado</string>
 
     <!--Activity agregar a Lista-->
     <string name="txtTitLis">Ingresar ingrediente a la lista</string>
