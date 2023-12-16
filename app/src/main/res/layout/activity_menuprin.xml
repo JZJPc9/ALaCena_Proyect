@@ -28,6 +28,22 @@
 
 
         <TextView
+            android:id="@+id/txtcor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="45dp"
+            android:layout_marginStart="160dp"/>
+
+        <TextView
+            android:id="@+id/txtnom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="75dp"
+            android:layout_marginStart="160dp"/>
+
+
+
+        <TextView
             android:id="@+id/textCuenta"
             android:layout_marginStart="10dp"
             android:layout_width="match_parent"
@@ -57,13 +73,23 @@
 
 
         <TextView
-            android:id="@+id/codAcc"
+            android:id="@+id/txtcodAcc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20dp"
             android:text="@string/txtCodMen"
             android:textColor="@color/black"
             android:layout_margin="20dp"
+            android:layout_gravity="bottom"/>
+
+        <TextView
+            android:id="@+id/codAcc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            android:layout_marginBottom="20dp"
+            android:layout_marginStart="100dp"
             android:layout_gravity="bottom"/>
 
 

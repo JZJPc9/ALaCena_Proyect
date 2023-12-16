@@ -21,6 +21,8 @@
     <string name="txtMatReg">Second Last Name</string>
     <string name="txtCorReg">Enter your email</string>
     <string name="txtConReg">Enter a password</string>
+    <string name="txtConAvi">See privacy notice</string>
+    <string name="Box">Accept privacy notice</string>
     <string name="txtConCReg">Confirm a password</string>
     <string name="btnRegReg">Sign up</string>
 
@@ -78,6 +80,8 @@
     <string name="msjToaNonLog">Incorrect email and/or password</string>
     <string name="msjToaExiUser">The email is already registered with another user</string>
     <string name="msjToaNotGru">Grup not found</string>
+    <string name="msjToaExiInv">the ingredient is a ready exist</string>
+    <string name="msjToaNoExi">Nothing found</string>
 
 
     <!--Activity agregar a Lista-->
@@ -100,7 +104,6 @@
     <string name="txtCanI">amount:</string>
     <string name="txtNomI">Name:</string>
     <string name="confirm">Confirm</string>
-
 
 
 </resources>

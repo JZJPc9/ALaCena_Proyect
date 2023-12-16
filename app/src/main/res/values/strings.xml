@@ -13,6 +13,8 @@
     <string name="btnLogLog">iniciar sesión</string>
 
     <!--Activity Registro-->
+    <string name="Box">Acepto el aviso de privacidad</string>
+    <string name="txtConAvi">Ver el aviso de privacidad</string>
     <string name="txtTitReg">Registro</string>
     <string name="txtIngReg">Ingrese sus datos de usuario</string>
     <string name="txtNomReg">Nombre(s)</string>
@@ -41,7 +43,7 @@
     <string name="txtNomMen">name:</string>
     <string name="txtIrCMen">Ir a configuración de cuenta</string>
     <string name="txtIrGMen">Ir a configuracion del Grupo</string>
-    <string name="txtCerrarSession">Cerrar Seción</string>
+    <string name="txtCerrarSession">Cerrar Sesión</string>
     <string name="txtCodMen">codigo:</string>
 
     <!--Activity configuracion de cuenta-->
@@ -77,6 +79,8 @@
     <string name="msjToaNonLog">Correo y/o contraseña incorrectos</string>
     <string name="msjToaExiUser">El correo ya esta registrado con otro usuario</string>
     <string name="msjToaNotGru">Grupo no encontrado</string>
+    <string name="msjToaExiInv">El ingrediente ya existe</string>
+    <string name="msjToaNoExi">Nada Encontrado</string>
 
     <!--Activity agregar a Lista-->
     <string name="txtTitLis">Ingresar ingrediente a la lista</string>
@@ -98,6 +102,5 @@
     <string name="txtCanI">Cantidad:</string>
     <string name="txtNomI">Nombre:</string>
     <string name="confirm">Confirmar</string>
-
 
 </resources>

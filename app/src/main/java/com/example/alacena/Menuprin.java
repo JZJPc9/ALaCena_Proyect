@@ -8,6 +8,8 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
@@ -17,6 +19,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.alacena.DB.DBHelper;
 import com.example.alacena.clases.Cifrado;
 import com.google.android.material.navigation.NavigationBarView;
 
@@ -42,7 +45,7 @@ public class Menuprin extends AppCompatActivity {
     ImageButton navhorbutton;
 
     //text de opciones
-    TextView textCuenta,textGrupo,textClose,textNombre,textCorreo;
+    TextView textCuenta,textGrupo,textClose,textNombre,textCorreo,codigo;
 
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,32 +61,70 @@ public class Menuprin extends AppCompatActivity {
         textCuenta = findViewById(R.id.textCuenta);
         textGrupo = findViewById(R.id.textGrupo);
         textClose = findViewById(R.id.textClose);
-        textNombre = findViewById(R.id.textNombre);
-        textCorreo = findViewById(R.id.textCorreo);
+
+        textNombre = findViewById(R.id.txtnom);
+        textCorreo = findViewById(R.id.txtcor);
+        codigo = findViewById(R.id.codAcc);
 
         //damos la informacion al front
         Charset character = StandardCharsets.UTF_8;
         File ruta = getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS);
         File sessionCor = new File(ruta,"sessionCor.dat");
+        File sessionGru = new File(ruta,"sessionGru.dat");
         String contentc;
+        String contentg;
+
+        DBHelper dbHelper = new DBHelper(getApplicationContext());
+        SQLiteDatabase dbr = dbHelper.getReadableDatabase();
+        SQLiteDatabase dbw = dbHelper.getWritableDatabase();
 
         try {
             FileInputStream fisCor = new FileInputStream(sessionCor);
             byte[] bytesCor = new byte[(int) sessionCor.length()];
             fisCor.read(bytesCor);
             contentc = new String(bytesCor,character);
-
             String inp = Cifrado.descifrar(contentc);
 
-            Toast.makeText(getApplicationContext(),inp,Toast.LENGTH_SHORT).show();
+            FileInputStream fisGru = new FileInputStream(sessionGru);
+            byte[] bytesGru = new byte[(int) sessionGru.length()];
+            fisGru.read(bytesGru);
+            contentg = new String(bytesGru,character);
 
-            runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    textCorreo.setText(inp);
-                }
-            });
 
+            String colsel[] = {"id_dat"};
+            String argsbus[] = {inp};
+            Cursor valid = dbr.query("DatosUsuario",colsel,"corr_dat = ?",argsbus,null,null,null);
+            valid.moveToFirst();
+
+            int iddat = valid.getInt(valid.getColumnIndexOrThrow("id_dat"));
+
+            Log.i("datos",String.valueOf(iddat));
+
+
+
+            String colselU[] = {"nom_usu"};
+            String argsselU[] = {String.valueOf(iddat)};
+            Cursor datnom = dbr.query("Usuario",colselU,"id_usu = ?",argsselU,null,null,null);
+            datnom.moveToFirst();
+
+            String colselG[] = {"cod_gfa"};
+            String argsselG[] = {contentg};
+            Cursor codec = dbr.query("GrupoFamiliar",colselG,"id_gfa = ?",argsselG,null,null,null);
+            codec.moveToFirst();
+
+
+
+
+            codigo.setText(codec.getString(codec.getColumnIndexOrThrow("cod_gfa")));
+            textNombre.setText(datnom.getString(datnom.getColumnIndexOrThrow("nom_usu")));
+            textCorreo.setText(inp);
+
+            datnom.close();
+            codec.close();
+            fisGru.close();
+            fisCor.close();
+            valid.close();
+            datnom.close();
 
         }catch (Exception e){
             Log.e("SESSION",e.toString());

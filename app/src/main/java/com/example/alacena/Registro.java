@@ -12,6 +12,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
@@ -31,7 +32,6 @@ public class Registro extends AppCompatActivity {
     TextInputLayout nombre, apellidop, apellidom;
     ImageButton btnBack;
     Button btnReg;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +45,7 @@ public class Registro extends AppCompatActivity {
         contrasena = findViewById(R.id.editTextPassword);
         confContrasena = findViewById(R.id.editTextConfPassword);
         correo =findViewById(R.id.editTextEmailAddress);
+
 
 
         //boton back
@@ -77,7 +78,7 @@ public class Registro extends AppCompatActivity {
                     String argDat[] = {corr};
                     Cursor comprobacion = dbR.query("DatosUsuario",obtDat,"corr_dat = ?",argDat,null,null,null);
 
-                    if(comprobacion != null && comprobacion.moveToFirst()){
+                    if(comprobacion != null && comprobacion.moveToFirst() ){
                         //regitro ya creado
                         Toast.makeText(getApplicationContext(),getString(R.string.msjToaExiUser),Toast.LENGTH_SHORT).show();
 

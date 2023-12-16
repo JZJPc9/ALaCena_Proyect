@@ -101,7 +101,7 @@ public class DBHelper extends SQLiteOpenHelper {
                 ")");
         dbAlacena.execSQL("CREATE TABLE IF NOT EXISTS IngredienteInventario  (" +
                 "id_ingin INTEGER NOT NULL," +
-                "nom__ingin TEXT," +
+                "nom_ingin TEXT," +
                 "can_ingin NUMERIC," +
                 "id_inv INTEGER," +
                 "FOREIGN KEY(id_inv) REFERENCES Inventario(id_inv)," +

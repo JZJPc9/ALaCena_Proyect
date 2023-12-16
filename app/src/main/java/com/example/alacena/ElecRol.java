@@ -62,6 +62,7 @@ public class ElecRol extends AppCompatActivity {
                     if(comprovacion != null && comprovacion.moveToFirst()){
                         Log.i("GENGRUP","codigo ya existente");
                     }else{
+
                         b = false;
 
                         ContentValues datgrup = new ContentValues();
