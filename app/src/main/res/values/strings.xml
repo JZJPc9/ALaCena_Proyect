@@ -52,6 +52,7 @@
     <string name="txtCamCor">Cambiar correo</string>
     <string name="txtCamCon">Cambiar Contraseña</string>
     <string name="btnConfDat">Confirmar cambios de Datos</string>
+    <string name="txtIngCon">Ingrese su contraseña</string>
     <string name="btnConfCamCor">Confirmar cambio de E-mail</string>
     <string name="btnConfCon">Confirmar cambio contraseña</string>
 
@@ -81,6 +82,8 @@
     <string name="msjToaNotGru">Grupo no encontrado</string>
     <string name="msjToaExiInv">El ingrediente ya existe</string>
     <string name="msjToaNoExi">Nada Encontrado</string>
+    <string name="msjToaNoValidCorr">Ingrese un correo valido</string>
+    <string name="msjToaConInv">Contraseña invalida</string>
 
     <!--Activity agregar a Lista-->
     <string name="txtTitLis">Ingresar ingrediente a la lista</string>

@@ -184,6 +184,7 @@ public class Menuprin extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intCuenta = new Intent(getApplicationContext(),ConfigCuenta.class);
                 startActivity(intCuenta);
+                finish();
             }
         });
 
