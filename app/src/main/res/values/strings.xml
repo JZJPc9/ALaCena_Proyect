@@ -103,4 +103,15 @@
     <string name="txtNomI">Nombre:</string>
     <string name="confirm">Confirmar</string>
 
+    <!--Strings Alert Dialog-->
+    <string name="dialElim">¿Esta seguro de querer eliminar?</string>
+    <string name="acepElim">Aceptar</string>
+    <string name="rechElim">Cancelar</string>
+
+    <!--Fechas-->
+    <string name="numDia">Dia: </string>
+    <string name="numMes">Mes: </string>
+    <string name="numAno">Año: </string>
+
+
 </resources>

@@ -1,5 +1,7 @@
 package com.example.alacena;
 
+import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -14,13 +16,20 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.alacena.DB.DBHelper;
 import com.example.alacena.clases.IngInv;
+import com.example.alacena.interf.FragAct;
 import com.example.alacena.interf.IOnItemClickListener;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class IngInvAdapter extends ListAdapter <IngInv, IngInvAdapter.IngInvViewHolder> {
 
     //asignacion
+    private ArrayList<IngInv>  milista;
 
     private IOnItemClickListener objitemclick;
 
@@ -29,7 +38,10 @@ public class IngInvAdapter extends ListAdapter <IngInv, IngInvAdapter.IngInvView
     }
 
     //configuracion de el dif para no repetirlo
-    protected IngInvAdapter(){super(DIFF_CALLBACK);}
+    protected IngInvAdapter(ArrayList<IngInv> milista){
+        super(DIFF_CALLBACK);
+        this.milista = milista;
+    }
 
     //
     public IngInvAdapter.IngInvViewHolder onCreateViewHolder(@NonNull ViewGroup parent,int viewType){
@@ -68,13 +80,13 @@ public class IngInvAdapter extends ListAdapter <IngInv, IngInvAdapter.IngInvView
             btnOpt.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    mostrarMenu(v);
+                    mostrarMenu(v,ingInv);
                 }
             });
         }
 
         //logica para las opciones y creacion de el menu "mas opciones"
-        private void mostrarMenu(View v){
+        private void mostrarMenu(View v, IngInv ingInv){
             //creando el menu desplegable
             PopupMenu popupMenu = new PopupMenu(v.getContext(), v);
             //se le vincula con los recursos de opciones
@@ -85,12 +97,25 @@ public class IngInvAdapter extends ListAdapter <IngInv, IngInvAdapter.IngInvView
                 public boolean onMenuItemClick(MenuItem item) {
                     if (item.toString().equals("Editar") || item.toString().equals("Edit")){
 
-                        Toast.makeText(v.getContext(),"Opcion Editar",Toast.LENGTH_LONG).show();
+
 
                         return true;
                     }else{
 
-                        Toast.makeText(v.getContext(),"Ocion Eliminar",Toast.LENGTH_LONG).show();
+                        //Eliminar registro de la base de datos
+                        DBHelper db = new DBHelper(v.getContext());
+                        SQLiteDatabase dbw = db.getWritableDatabase();
+                        String argDelIng[] = {String.valueOf(ingInv.getId())};
+                        dbw.delete("LoteIngrediente","id_ingin = ?",argDelIng);
+                        dbw.delete("IngredienteInventario","id_ingin = ?",argDelIng);
+
+
+                        milista.remove(getAdapterPosition());
+                        notifyItemRemoved(getAdapterPosition());
+                        notifyDataSetChanged();
+
+
+
 
                         return true;
                     }

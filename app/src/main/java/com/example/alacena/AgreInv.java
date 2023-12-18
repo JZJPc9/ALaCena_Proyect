@@ -110,6 +110,9 @@ public class AgreInv extends AppCompatActivity {
 
 
                             idingin.close();
+                            Intent getIntentAct = new Intent(getApplicationContext(), Menuprin.class);
+                            startActivity(getIntentAct);
+                            finish();
 
 
                         }
@@ -148,6 +151,9 @@ public class AgreInv extends AppCompatActivity {
 
 
                         idingin.close();
+                        Intent getIntentAct = new Intent(getApplicationContext(), Menuprin.class);
+                        startActivity(getIntentAct);
+                        finish();
 
                     }
                     cridinv.close();
@@ -158,7 +164,7 @@ public class AgreInv extends AppCompatActivity {
                 dbr.close();
                 dbw.close();
 
-                finish();
+
                 /* **************************************************************************** */
 
             }
@@ -172,4 +178,12 @@ public class AgreInv extends AppCompatActivity {
             }
         });
     }
+
+    public void onBackPressed(){
+        Intent getIntentAct = new Intent(getApplicationContext(), Menuprin.class);
+        startActivity(getIntentAct);
+        finish();
+    }
+
+
 }

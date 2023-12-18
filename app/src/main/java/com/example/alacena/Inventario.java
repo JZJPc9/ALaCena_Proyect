@@ -1,5 +1,6 @@
 package com.example.alacena;
 
+import android.content.Context;
 import android.content.ContextWrapper;
 import android.content.Intent;
 import android.database.Cursor;
@@ -138,12 +139,17 @@ public class Inventario extends Fragment {
 
 
 /**************************************************************************************************/
-        IngInvAdapter ingInvAdapter = new IngInvAdapter();
+
+        Context contextFragment;
+        contextFragment = getContext();
+
+        IngInvAdapter ingInvAdapter = new IngInvAdapter(ingInv);
 
 
 
         recyclerInv.setAdapter(ingInvAdapter);
         ingInvAdapter.submitList(ingInv);
+
 
 
 
@@ -157,9 +163,12 @@ public class Inventario extends Fragment {
 
                 Intent getIntentAct = new Intent(getActivity(), AgreInv.class);
                 startActivity(getIntentAct);
-
+                getActivity().finish();
             }
         });
+
+
+
         return view;
     }
 }
