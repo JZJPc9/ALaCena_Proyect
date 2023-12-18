@@ -95,6 +95,7 @@
     <string name="txtCanInv">Input amount ingrediente</string>
     <string name="txtNomInv">Input Name ingredient</string>
     <string name="txtFecInv">Input Date of used</string>
+    <string name="txtTiteditInv">Edit Ingredient</string>
 
     <!--Activity agregar Receta-->
     <string name="txtTitRec">Input Recipes to Reciping</string>

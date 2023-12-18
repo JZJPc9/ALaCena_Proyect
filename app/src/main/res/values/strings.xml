@@ -93,6 +93,7 @@
     <string name="txtCanInv">Ingresar Cantidad del ingrediente</string>
     <string name="txtNomInv">Ingresar Nombre del ingrediente</string>
     <string name="txtFecInv">Ingresa una fecha de uso</string>
+    <string name="txtTiteditInv">Editar Ingrediente</string>
 
     <!--Activity agregar Receta-->
     <string name="txtTitRec">Ingresar Receta al Recetario</string>

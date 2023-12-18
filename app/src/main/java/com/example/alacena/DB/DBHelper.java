@@ -113,6 +113,7 @@ public class DBHelper extends SQLiteOpenHelper {
                 "id_ingli INTEGER NOT NULL," +
                 "nom_ingli TEXT," +
                 "can_ingli TEXT," +
+                "bol_ingli TEXT,"+
                 "id_lic INTEGER," +
                 "FOREIGN KEY(id_lic) REFERENCES Lista(id_lic)," +
                 "PRIMARY KEY(id_ingli " +

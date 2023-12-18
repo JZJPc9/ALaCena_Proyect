@@ -140,22 +140,11 @@ public class Inventario extends Fragment {
 
 /**************************************************************************************************/
 
-        Context contextFragment;
-        contextFragment = getContext();
+
 
         IngInvAdapter ingInvAdapter = new IngInvAdapter(ingInv);
-
-
-
         recyclerInv.setAdapter(ingInvAdapter);
         ingInvAdapter.submitList(ingInv);
-
-
-
-
-
-
-
 
         btnAgreInv.setOnClickListener(new View.OnClickListener() {
             @Override

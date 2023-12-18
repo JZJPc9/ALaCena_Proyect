@@ -1,5 +1,8 @@
 package com.example.alacena;
 
+import android.app.Activity;
+import android.content.ContentValues;
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -77,6 +80,68 @@ public class IngInvAdapter extends ListAdapter <IngInv, IngInvAdapter.IngInvView
             txtCanIng.setText(String.valueOf(ingInv.getCantidad()));
 
             //logica de boton
+            btnMas.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    double cantidad = Double.valueOf(txtCanIng.getText().toString());
+                    double suma = cantidad + 1;
+                    if ((int)suma >= 0) {
+                        txtCanIng.setText(String.valueOf(suma));
+                        DBHelper db = new DBHelper(v.getContext());
+                        SQLiteDatabase dbw = db.getWritableDatabase();
+                        ContentValues updIngInv = new ContentValues();
+                        updIngInv.put("can_ingin", suma);
+                        String argsUpdIngIn[] = {String.valueOf(ingInv.getId())};
+                        dbw.update("IngredienteInventario", updIngInv, "id_ingin = ?", argsUpdIngIn);
+                        dbw.close();
+                    }else{
+                        DBHelper db = new DBHelper(v.getContext());
+                        SQLiteDatabase dbw = db.getWritableDatabase();
+                        String argDelIng[] = {String.valueOf(ingInv.getId())};
+                        dbw.delete("LoteIngrediente","id_ingin = ?",argDelIng);
+                        dbw.delete("IngredienteInventario","id_ingin = ?",argDelIng);
+
+
+                        milista.remove(getAdapterPosition());
+                        notifyItemRemoved(getAdapterPosition());
+                        notifyDataSetChanged();
+                    }
+                }
+            });
+
+
+
+            btnMen.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    double cantidad = Double.valueOf(txtCanIng.getText().toString());
+                    double resta = cantidad - 1;
+                    if ((int)resta >= 0) {
+                        txtCanIng.setText(String.valueOf(resta));
+                        DBHelper db = new DBHelper(v.getContext());
+                        SQLiteDatabase dbw = db.getWritableDatabase();
+                        ContentValues updIngInv = new ContentValues();
+                        updIngInv.put("can_ingin", resta);
+                        String argsUpdIngIn[] = {String.valueOf(ingInv.getId())};
+                        dbw.update("IngredienteInventario", updIngInv, "id_ingin = ?", argsUpdIngIn);
+                        dbw.close();
+                    }else{
+                        DBHelper db = new DBHelper(v.getContext());
+                        SQLiteDatabase dbw = db.getWritableDatabase();
+                        String argDelIng[] = {String.valueOf(ingInv.getId())};
+                        dbw.delete("LoteIngrediente","id_ingin = ?",argDelIng);
+                        dbw.delete("IngredienteInventario","id_ingin = ?",argDelIng);
+
+
+                        milista.remove(getAdapterPosition());
+                        notifyItemRemoved(getAdapterPosition());
+                        notifyDataSetChanged();
+                    }
+                }
+            });
+
+
+
             btnOpt.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -96,9 +161,12 @@ public class IngInvAdapter extends ListAdapter <IngInv, IngInvAdapter.IngInvView
                 @Override
                 public boolean onMenuItemClick(MenuItem item) {
                     if (item.toString().equals("Editar") || item.toString().equals("Edit")){
-
-
-
+                        Intent edit = new Intent(v.getContext(),EditIngre.class);
+                        edit.putExtra("idingin",String.valueOf(ingInv.getId()));
+                        edit.putExtra("nominginv",ingInv.getNombre());
+                        edit.putExtra("caningin",String.valueOf(ingInv.getCantidad()));
+                        edit.putExtra("fechaingin",ingInv.getFecFin());
+                        v.getContext().startActivity(edit);
                         return true;
                     }else{
 
@@ -115,14 +183,13 @@ public class IngInvAdapter extends ListAdapter <IngInv, IngInvAdapter.IngInvView
                         notifyDataSetChanged();
 
 
-
-
                         return true;
                     }
                 }
             });
             popupMenu.show();
         }
+        /*final del pop up mexico*/
     }
 
     public static final DiffUtil.ItemCallback<IngInv> DIFF_CALLBACK = new DiffUtil.ItemCallback<IngInv>() {

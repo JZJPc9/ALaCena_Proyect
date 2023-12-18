@@ -1,5 +1,8 @@
 package com.example.alacena;
 
+import android.content.ContentValues;
+import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,13 +16,18 @@ import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.alacena.DB.DBHelper;
 import com.example.alacena.clases.IngListCom;
 import com.example.alacena.interf.LOnItemClickListener;
+
+import java.util.ArrayList;
 
 
 public class IngLisComAdapter extends ListAdapter <IngListCom, IngLisComAdapter.IngLisComViewHolder>{
 
     //asignacion de la interface con el metodo de accion setOnclicListener
+
+    private ArrayList<IngListCom> milista;
     private LOnItemClickListener objitemclick;
 
     public void setOnItemClickListener(LOnItemClickListener objitemclick){
@@ -29,8 +37,9 @@ public class IngLisComAdapter extends ListAdapter <IngListCom, IngLisComAdapter.
 
 
     //configuracion de el dif para no repetido
-    protected IngLisComAdapter(){
+    protected IngLisComAdapter(ArrayList<IngListCom> milista){
         super(DIFF_CALLBACK);
+        this.milista = milista;
     }
 
     @NonNull
@@ -70,12 +79,48 @@ public class IngLisComAdapter extends ListAdapter <IngListCom, IngLisComAdapter.
         public void bind (IngListCom ingListCom){
             nomitemLis.setText(ingListCom.getNombre());
             cantitemlis.setText(String.valueOf(ingListCom.getCantidad()));
-            checkCom.setSelected(ingListCom.isCheck());
+            checkCom.setChecked(ingListCom.isCheck());
             //Esta sera una prueba de uso de el boton del recurso item
             elimItem.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(itemView.getContext(), "Prueba"+ ingListCom.getNombre(),Toast.LENGTH_SHORT).show();
+                    DBHelper db = new DBHelper(v.getContext());
+                    SQLiteDatabase dbw = db.getWritableDatabase();
+                    String delargs[] = {String.valueOf(ingListCom.getId())};
+                    dbw.delete("IngredienteLista","id_ingli = ?",delargs);
+
+                    milista.remove(getAdapterPosition());
+                    notifyItemRemoved(getAdapterPosition());
+                    notifyDataSetChanged();
+
+
+                }
+            });
+
+            checkCom.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    DBHelper db = new DBHelper(v.getContext());
+                    SQLiteDatabase dbw = db.getWritableDatabase();
+
+                    String bolargs[] = {String.valueOf(ingListCom.getId())};
+                    ContentValues valbol = new ContentValues();
+
+                    if(checkCom.isChecked()){
+                        Log.i("checked","1");
+                        valbol.put("bol_ingli","1");
+                        dbw.update("IngredienteLista",valbol,"id_ingli = ?",bolargs);
+                        dbw.close();
+                    }else{
+                        Log.i("checked","0");
+                        valbol.put("bol_ingli","0");
+                        dbw.update("IngredienteLista",valbol,"id_ingli = ?",bolargs);
+                        dbw.close();
+                    }
+
+
+
+
                 }
             });
 

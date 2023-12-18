@@ -174,6 +174,8 @@ public class AgreInv extends AppCompatActivity {
         btnback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent getIntentAct = new Intent(getApplicationContext(), Menuprin.class);
+                startActivity(getIntentAct);
                 finish();
             }
         });

@@ -51,7 +51,9 @@ public class Menuprin extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menuprin);
-        remplaceFragment(inv);
+        Intent datback = getIntent();
+
+
         //menu desplegable
         drawerLayout = findViewById(R.id.dibujable);
         navhorbutton = findViewById(R.id.navhorbutton);
@@ -65,6 +67,18 @@ public class Menuprin extends AppCompatActivity {
         textNombre = findViewById(R.id.txtnom);
         textCorreo = findViewById(R.id.txtcor);
         codigo = findViewById(R.id.codAcc);
+
+        //saber donde iniciar
+        if(datback.getStringExtra("selrec") == null){
+            navMenu.setSelectedItemId(R.id.inventario);
+            remplaceFragment(inv);
+        }else if(datback.getStringExtra("selrec").equals("List")){
+            navMenu.setSelectedItemId(R.id.lista);
+            remplaceFragment(lis);
+        }else {
+            navMenu.setSelectedItemId(R.id.recetas);
+            remplaceFragment(rec);
+        }
 
         //damos la informacion al front
         Charset character = StandardCharsets.UTF_8;
